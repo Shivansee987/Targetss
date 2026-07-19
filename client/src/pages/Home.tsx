@@ -1,25 +1,43 @@
-import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
-import { Streamdown } from 'streamdown';
-
 /**
- * All content in this page are only for example, replace with your own feature implementation
- * When building pages, remember your instructions in Frontend Best Practices, Design Guide and Common Pitfalls
+ * Dawn Protocol — Home Page
+ * Design: Post-Bauhaus Functional Minimalism meets Military Discipline
+ * Palette: Deep Navy (#0F172A) + Warm Amber (#F59E0B) + Slate neutrals
+ * Typography: Bebas Neue (headings) + Inter (body) + JetBrains Mono (data)
  */
+
+import { useState } from "react";
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import ProfileSection from "@/components/ProfileSection";
+import TargetsSection from "@/components/TargetsSection";
+import ScheduleSection from "@/components/ScheduleSection";
+import WorkoutSection from "@/components/WorkoutSection";
+import RunningSection from "@/components/RunningSection";
+import DietSection from "@/components/DietSection";
+import AssessmentSection from "@/components/AssessmentSection";
+import MilestonesSection from "@/components/MilestonesSection";
+import OLQSection from "@/components/OLQSection";
+import SafetySection from "@/components/SafetySection";
+import Footer from "@/components/Footer";
+
 export default function Home() {
-  // If theme is switchable in App.tsx, we can implement theme toggling like this:
-  // const { theme, toggleTheme } = useTheme();
+  const [activeSection, setActiveSection] = useState("overview");
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <main>
-        {/* Example: lucide-react for icons */}
-        <Loader2 className="animate-spin" />
-        Example Page
-        {/* Example: Streamdown for markdown rendering */}
-        <Streamdown>Any **markdown** content</Streamdown>
-        <Button variant="default">Example Button</Button>
-      </main>
+    <div className="min-h-screen bg-background text-foreground">
+      <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
+      <HeroSection />
+      <ProfileSection />
+      <TargetsSection />
+      <ScheduleSection />
+      <WorkoutSection />
+      <RunningSection />
+      <DietSection />
+      <AssessmentSection />
+      <MilestonesSection />
+      <OLQSection />
+      <SafetySection />
+      <Footer />
     </div>
   );
 }
